@@ -18,7 +18,7 @@ Since we have created and aligned the input and output files, we have to run the
 
 After selecting others, you will see a new .vscode file and, in that, a tasks.json file, clear the current text in the json file and paste this.
 
-## Fr Windows/Linux Users:
+## Fr Windows Users:
 
 ```bash
 {
@@ -27,16 +27,10 @@ After selecting others, you will see a new .vscode file and, in that, a tasks.js
         {
             "label": "Compile and run",
             "type": "shell",
-            "command": "javac",
+            "command": "cmd",
             "args": [
-                "${relativeFile}",
-                "&&",
-                "java",
-                "${fileBasenameNoExtension}",
-                "<",
-                "input.txt",
-                ">",
-                "output.txt"
+                "/c",
+                "javac ${relativeFile} && java ${fileBasenameNoExtension} < input.txt > output.txt"
             ],
             "presentation": {
                 "reveal": "never"
@@ -46,7 +40,7 @@ After selecting others, you will see a new .vscode file and, in that, a tasks.js
                 "isDefault": true
             },
             "problemMatcher": {
-                "owner": "py",
+                "owner": "java",
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"
@@ -63,6 +57,7 @@ After selecting others, you will see a new .vscode file and, in that, a tasks.js
         }
     ]
 }
+
 ```
 
 ## For Mac Users:
